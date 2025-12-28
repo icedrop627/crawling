@@ -1,0 +1,45 @@
+Yahoo Finance 주식 데이터 크롤러 사용 방법
+==========================================
+
+✨ 간단한 방법 (권장) - HTML 파일 준비 불필요!
+==========================================
+
+1. 필요한 패키지 설치
+   pip install -r requirements.txt
+
+2. 바로 실행!
+   python stock_crawler.py
+
+   끝! 자동으로 Yahoo Finance에서 데이터를 가져와서
+   stock_data.xlsx 파일로 저장합니다.
+
+3. 다른 페이지 크롤링하기
+   python stock_crawler.py [URL]
+   
+   예시:
+   - 상승주: python stock_crawler.py https://finance.yahoo.com/screener/predefined/day_gainers
+   - 하락주: python stock_crawler.py https://finance.yahoo.com/screener/predefined/day_losers
+   - 거래량 상위: python stock_crawler.py https://finance.yahoo.com/screener/predefined/most_actives
+
+==========================================
+기존 방법 (HTML 파일 사용)
+==========================================
+
+HTML 파일을 직접 사용하고 싶은 경우:
+
+1. HTML 파일 준비
+   - 브라우저에서 Yahoo Finance 페이지를 열고
+   - F12 (개발자 도구 열기)
+   - Elements 탭에서 <table> 태그를 찾아
+   - 우클릭 > Copy > Copy outerHTML
+   - input.html 파일로 저장
+
+2. 스크립트 실행
+   python run_crawler.py
+
+주의사항:
+- 자동 크롤링(stock_crawler.py)은 Chrome 브라우저가 필요합니다
+- 첫 실행 시 ChromeDriver 자동 다운로드로 시간이 걸릴 수 있습니다
+- 무작위 클래스명(yf-1uayyp1 등)은 자동으로 무시됩니다
+- 데이터는 참고용으로만 사용하세요
+
